@@ -1,2 +1,42 @@
+# Data validator
+
+
+
+* **See how it works [here]().**
+
+
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/Linkshegelianer/java-project-78/workflows/hexlet-check/badge.svg)](https://github.com/Linkshegelianer/java-project-78/actions)
+| Type | Status                                                                                                                                                                           |
+| ---- |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Java CI | [![Java CI](https://github.com/Linkshegelianer/java-project-78/workflows/Java%20CI/badge.svg)](https://github.com/Linkshegelianer/java-project-78/actions/workflows/java-ci.yml) |
+| Actions Status | [![Actions Status](https://github.com/Linkshegelianer/java-project-78/workflows/hexlet-check/badge.svg)](https://github.com/Linkshegelianer/java-project-78/actions)             |
+| Maintainability | [![Maintainability](https://api.codeclimate.com/v1/badges/b41f89427e0d2393355f/maintainability)](https://codeclimate.com/github/Linkshegelianer/java-project-78/maintainability) |
+| Test Coverage | [![Test Coverage](https://api.codeclimate.com/v1/badges/b41f89427e0d2393355f/test_coverage)](https://codeclimate.com/github/Linkshegelianer/java-project-78/test_coverage)       |
+
+## Start
+
+```sh
+make
+```
+
+## Setup
+```sh
+make build
+```
+
+## Run
+```sh
+make run
+```
+
+## Run tests
+```sh
+make test
+```
+
+## Run checkstyle
+```sh
+make lint
+```
+
+
