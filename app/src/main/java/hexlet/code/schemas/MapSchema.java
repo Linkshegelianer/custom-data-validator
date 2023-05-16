@@ -25,4 +25,23 @@ public class MapSchema extends BaseSchema {
         addRule(sizeof);
         return this;
     }
+
+    public MapSchema shape(Map<String, BaseSchema> input) {
+        Predicate<Object> shape = (object) -> {
+            ObjectMapper objectMapper = new ObjectMapper();
+            Map<Object, Object> map = objectMapper.convertValue(object, Map.class);
+
+            for (Map.Entry<String, BaseSchema> schema : input.entrySet()) {
+                String schemaKey = schema.getKey();
+                Object value = map.get(schemaKey);
+
+                if (!schema.getValue().isValid(value)) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        addRule(shape);
+        return this;
+    }
 }
