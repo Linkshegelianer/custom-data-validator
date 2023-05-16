@@ -35,7 +35,7 @@ stringSchema.isValid("this example will be true"); // true
 stringSchema.isValid("this will be false"); // false  
 ```  
 
-### Validate numberic data
+### Validate Integer data
 ```java  
 Validator v = new Validator();  
 NumberSchema numberSchema = v.numer();  
@@ -78,6 +78,21 @@ mapSchema.sizeof(2); // set fixed size of the Map
 mapSchema.isValid(data); // false  
 data.put("key2", "value2");  
 mapSchema.isValid(data); // true  
+
+Map<String, BaseSchema> schemas = new HashMap<>(); 
+schemas.put("name", v.string().required());
+schemas.put("age", v.number().positive());
+schema.shape(schemas); // validate data for Map values
+
+Map<String, Object> human1 = new HashMap<>();
+human1.put("name", "Kolya");
+human1.put("age", 100);
+schema.isValid(human1); // true
+
+Map<String, Object> human2 = new HashMap<>();
+human4.put("name", "Valya");
+human4.put("age", -5);
+schema.isValid(human2); // false
 ```  
 
 ## Setup
