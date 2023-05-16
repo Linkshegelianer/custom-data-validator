@@ -17,27 +17,28 @@ public class NumberSchemaTest {
         schema = v.number();
     }
 
-//    @Test
-//    void testRequired() {
-//        assertTrue(schema.isValid(null));
-//
-//        schema.required();
-//
-//        assertFalse(schema.isValid(null));
-//        assertTrue(schema.isValid(10));
-//    }
+    @Test
+    void testRequired() { // pass
+        assertTrue(schema.isValid(null)); // pass
+        assertTrue(schema.positive().isValid(null)); // pass
+
+        schema.required();
+
+        assertFalse(schema.isValid(null)); // pass
+        assertTrue(schema.isValid(10)); // pass
+    }
 
     @Test
-    void testPositive() {
+    void testPositive() { // pass
         schema.positive();
 
         assertFalse(schema.isValid(0)); // pass
         assertFalse(schema.isValid(-10)); // pass
-        assertTrue(schema.isValid(10));
+        assertTrue(schema.isValid(10)); // pass
     }
 
     @Test
-    void range() {
+    void range() { // pass
         schema.range(5, 10);
         assertTrue(schema.isValid(5)); // pass
         assertTrue(schema.isValid(10)); // pass

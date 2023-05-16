@@ -1,37 +1,28 @@
 package hexlet.code.schemas;
 
-public class StringSchema {
+import java.util.function.Predicate;
 
-    private boolean isRequired = false;
-    private int minLength = 0;
-    private String containsSubstring = null;
+public class StringSchema extends BaseSchema {
+
+    public StringSchema() {
+        Predicate<Object> initialRule = (object) -> object instanceof String;
+        addRule(initialRule);
+    }
 
     public StringSchema required() {
-        isRequired = true;
-        return this; // method chaining/fluent interface, return reference to the current object
+        setRequired();
+        return this;
     }
 
     public StringSchema minLength(int length) {
-        minLength = length;
+        Predicate<Object> minLength = (object) -> object.toString().length() >= length;
+        addRule(minLength);
         return this;
     }
 
     public StringSchema contains(String substring) {
-        containsSubstring = substring;
+        Predicate<Object> contains = (object) -> object.toString().contains(substring);
+        addRule(contains);
         return this;
     }
-
-    public boolean isValid(String value) {
-        if (isRequired && (value == null || value.isEmpty())) {
-            return false;
-        }
-        if (value != null && value.length() < minLength) {
-            return false;
-        }
-        if (containsSubstring != null && !value.contains(containsSubstring)) {
-            return false;
-        }
-        return true;
-    }
-
 }
