@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.function.Predicate;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema {
 
     public MapSchema() {
         Predicate<Object> initialRule = (object) -> object instanceof Map;
