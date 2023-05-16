@@ -18,7 +18,7 @@ public class StringSchemaTest {
     }
 
     @Test
-    void testRequired() {
+    void testRequired() { // pass
         assertTrue(schema.isValid("")); // pass
         assertTrue(schema.isValid(null)); // pass
 
@@ -30,7 +30,7 @@ public class StringSchemaTest {
     }
 
     @Test
-    void testMinLength() {
+    void testMinLength() { // pass
         schema.minLength(5);
 
         assertTrue(schema.isValid("12345")); // pass

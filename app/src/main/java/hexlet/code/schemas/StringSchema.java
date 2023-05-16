@@ -11,6 +11,8 @@ public class StringSchema extends BaseSchema {
 
     public StringSchema required() {
         setRequired();
+        Predicate<Object> requiredString = (object) -> object != "";
+        addRule(requiredString);
         return this;
     }
 
