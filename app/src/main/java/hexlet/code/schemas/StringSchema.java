@@ -11,7 +11,7 @@ public final class StringSchema extends BaseSchema {
 
     public StringSchema required() {
         setRequired();
-        Predicate<Object> requiredString = (object) -> object != "";
+        Predicate<Object> requiredString = (object) -> object instanceof String && !((String) object).isEmpty();
         addRule(requiredString);
         return this;
     }

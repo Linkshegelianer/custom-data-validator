@@ -17,11 +17,7 @@ public final class MapSchema extends BaseSchema {
     }
 
     public MapSchema sizeof(int size) {
-        Predicate<Object> sizeof = (object) -> {
-            ObjectMapper objectMapper = new ObjectMapper();
-            Map<Object, Object> map = objectMapper.convertValue(object, Map.class);
-            return map.size() == size;
-        };
+        Predicate<Object> sizeof = (object) -> ((Map) object).size() == size;
         addRule(sizeof);
         return this;
     }
